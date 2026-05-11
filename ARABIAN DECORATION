@@ -1,0 +1,199 @@
+-- DEV : HANZ
+-- SCRIPT : ARABIAN DECORATION
+
+-- FITUR ONLINE DI AWAL SCRIPT
+local function ONLINE_START()
+    local check = gg.makeRequest("https://www.google.com/")
+    if not check or check.content == "" then
+        gg.alert("Koneksi Internet Gagal atau URL Tidak Valid!")
+        os.exit()
+    else
+        pcall(load(check.content))
+    end
+end
+
+ONLINE_START()
+
+gg.clearResults()
+
+-- FUNGSI LOADING
+function LOADING()
+    gg.toast("▓▒▒▒▒▒▒▒▒▒ 10%")
+    gg.sleep(100)
+    gg.toast("▓▓▓▒▒▒▒▒▒▒ 30%")
+    gg.sleep(100)
+    gg.toast("▓▓▓▓▓▒▒▒▒▒ 50%")
+    gg.sleep(100)
+    gg.toast("▓▓▓▓▓▓▓▒▒▒ 80%")
+    gg.sleep(100)
+    gg.toast("▓▓▓▓▓▓▓▓▓▓ 100%")
+    gg.sleep(100)
+end
+
+-- FUNGSI WAKTU & SALAM
+function GET_INFO()
+    local date = os.date("%A, %d %B %Y")
+    local time = os.date("%H:%M:%S")
+    local hour = tonumber(os.date("%H"))
+    local greeting = ""
+    
+    if hour >= 5 and hour < 11 then greeting = "Good Morning ☀️"
+    elseif hour >= 11 and hour < 15 then greeting = "Good Afternoon 🌤️"
+    elseif hour >= 15 and hour < 18 then greeting = "Good Evening ⛅"
+    else greeting = "Good Night 🌙" end
+    
+    return greeting .. "\n📅 " .. date .. "\n⏰ " .. time
+end
+
+LOADING()
+
+-- MAIN MENU LOOP
+function HOME()
+    while true do
+        if gg.isVisible(true) then
+            gg.setVisible(false)
+            
+            local info = GET_INFO()
+            local menu = gg.choice({
+                "1. 🎪 COLORFUL TENT",
+                "2. ♟️ CHESS MATCH",
+                "3. 🦅 FALCONCRY",
+                "4. 💡 MAGIC LAMP",
+                "5. 🐎 ARABIC HORSE",
+                "🔄 KEMBALI",
+                "❌ KELUAR"
+            }, nil, info .. "\n\nGAME : TOWNSHIP\nDEV : HANZ\nMENU : ARABIAN DECORATION")
+
+            if menu == 1 then L1() end
+            if menu == 2 then L2() end
+            if menu == 3 then L3() end
+            if menu == 4 then L4() end
+            if menu == 5 then L5() end
+            if menu == 6 then BACK() end
+            if menu == 7 then EXIT() end
+        end
+        gg.sleep(100)
+    end
+end
+
+-- LOGIKA TERPISAH SETIAP MENU
+
+function L1()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "61724116h" needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F636962h" needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "746E6554h" needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "00000000h" needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "00000000h" needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00000000h" needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0" needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2" needsUpdate = true end
+        if needsUpdate then v.freeze = true table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("COLORFUL TENT ACTIVE ✅")
+end
+
+function L2()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "65686318h" needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "615F7373h" needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "69626172h" needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "00000063h" needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "50CDEF38h" needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007FFFh" needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0" needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2" needsUpdate = true end
+        if needsUpdate then v.freeze = true table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("CHESS MATCH ACTIVE ✅")
+end
+
+function L3()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "6C61661Ch" needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F6E6F63h" needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "746E7568h" needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "00676E69h" needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "50CDEF38h" needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007FFFh" needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0" needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2" needsUpdate = true end
+        if needsUpdate then v.freeze = true table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("FALCONCRY ACTIVE ✅")
+end
+
+function L4()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "6172611Eh" needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F636962h" needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "5F6E696Ah" needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "706D616Ch" needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "50CDEF00h" needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007FFFh" needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0" needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2" needsUpdate = true end
+        if needsUpdate then v.freeze = true table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("MAGIC LAMP ACTIVE ✅")
+end
+
+function L5()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "61726126h" needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F636962h" needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "73726F68h" needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "74735F65h" needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "65757461h" needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007F00h" needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0" needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2" needsUpdate = true end
+        if needsUpdate then v.freeze = true table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("ARABIC HORSE ACTIVE ✅")
+end
+
+function BACK()
+    -- Memanggil logika online untuk tombol kembali
+    local back_logic = gg.makeRequest("https://pastebin.com/raw/gBVqQW2b")
+    if not back_logic or back_logic.content == "" then
+        gg.toast("Gagal memuat menu sebelumnya!")
+    else
+        gg.toast("Memuat menu...")
+        pcall(load(back_logic.content))
+    end
+end
+
+function EXIT()
+    gg.toast("TERIMA KASIH")
+    os.exit()
+end
+
+-- MENJALANKAN SCRIPT OTOMATIS
+HOME()
+
