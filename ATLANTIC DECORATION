@@ -1,0 +1,262 @@
+-- DEV : HANZ
+-- SCRIPT : ATLANTIC DECORATION
+
+-- 1. EFEK LOADING Keren
+gg.clearResults()
+gg.toast("⏳ Memulai")
+gg.sleep(500)
+gg.toast("🌐 Menghubungkan ke Server")
+gg.sleep(1000)
+gg.toast("✅ Akses Diterima!")
+
+-- 2. SISTEM CEK KONEKSI (Hanya Cek Akses, Tidak Langsung Eksekusi)
+local link_akses = "https://pastebin.com/raw/gBVqQW2b" 
+local check_koneksi = gg.makeRequest(link_akses).content
+
+if not check_koneksi then
+    gg.alert("❌ Gagal terhubung ke Server Online. Periksa koneksi internet Anda!")
+    os.exit()
+end
+
+-- 3. FUNGSI WAKTU & UCAPAN
+function getGreeting()
+    local hour = tonumber(os.date("%H"))
+    if hour >= 5 and hour < 11 then return "🌅 Good Morning"
+    elseif hour >= 11 and hour < 15 then return "☀️ Good Afternoon"
+    elseif hour >= 15 and hour < 18 then return "🌆 Good Evening"
+    else return "🌃 Good Night" end
+end
+
+local function SHOW_MENU()
+    local date = os.date("%A, %d %B %Y")
+    local time = os.date("%H:%M:%S")
+    local greeting = getGreeting()
+    
+    local menu = gg.choice({
+        "🔱 1. POSEIDON STATUE",
+        "🏛️ 2. RUINS OF ATLANTIS",
+        "🏙️ 3. SUNKEN CITY",
+        "🏛️ 4. ATLANTIS MUSEUM",
+        "🔱 5. ATLANTEAN TRIDEN",
+        "🏨 6. ATLANTIS HOTEL",
+        "🌿 7. CORAL FENCE",
+        "🐚 8. SEA HERALD",
+        "🔄 KEMBALI",
+        "❌ KELUAR"
+    }, nil, greeting .. "\n📅 " .. date .. "\n⏰ " .. time .. "\n🎮 GAME : TOWNSHIP\n👤 DEV : HANZ\n💎 MENU : ATLANTIC DECORATION")
+
+    -- Fix: Jika klik luar atau batal (nil), panggil SHOW_MENU lagi agar tidak keluar
+    if menu == nil then 
+        gg.setVisible(false)
+        while true do
+            if gg.isVisible() then
+                gg.setVisible(false)
+                SHOW_MENU()
+                break
+            end
+        end
+    elseif menu == 1 then L1()
+    elseif menu == 2 then L2()
+    elseif menu == 3 then L3()
+    elseif menu == 4 then L4()
+    elseif menu == 5 then L5()
+    elseif menu == 6 then L6()
+    elseif menu == 7 then L7()
+    elseif menu == 8 then L8()
+    elseif menu == 9 then BACK()
+    elseif menu == 10 then EXIT() end
+end
+
+-- 4. LOGIKA TERPISAH (FULL LOGIC DENGAN UPDATE HEX)
+
+function L1()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "6165621Eh"; v.address = v.address; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F797475h"; v.address = v.address; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "65736F70h"; v.address = v.address; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "6E6F6469h"; v.address = v.address; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "048B0A00h"; v.address = v.address; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00000069h"; v.address = v.address; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🔱 POSEIDON STATUE Aktif")
+end
+
+function L2()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "6165622Ah"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F797475h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "616C7461h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "7369746Eh"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "6975725Fh"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "0000736Eh"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🏛️ RUINS OF ATLANTIS Aktif")
+end
+
+function L3()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "63726128h"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "6F656168h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "79676F6Ch"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "6C74615Fh"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "69746E61h"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00000073h"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🏙️ SUNKEN CITY Aktif")
+end
+
+function L4()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "73756D1Eh"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F6D7565h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "616C7461h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "7369746Eh"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "5138FF00h"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007FFFh"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🏛️ ATLANTIS MUSEUM Aktif")
+end
+
+function L5()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "61656222h"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F797475h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "616C7461h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "61685F73h"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "2C00646Eh"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00000000h"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🔱 ATLANTEAN TRIDEN Aktif")
+end
+
+function L6()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "6165622Ah"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F797475h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "616C7461h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "7369746Eh"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "746F685Fh"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00006C65h"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🏨 ATLANTIS HOTEL Aktif")
+end
+
+function L7()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "6C74411Ch"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "69746E61h"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "65665F73h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "0065636Eh"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "6C74411Ch"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "69746E61h"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🌿 CORAL FENCE Aktif")
+end
+
+function L8()
+    local items = gg.getListItems()
+    local updateList = {}
+    for i, v in ipairs(items) do
+        local ok = false
+        if v.name == "HANZ DATA 1" then v.value = "6C65682Ah"; ok = true
+        elseif v.name == "HANZ DATA 2" then v.value = "4F74656Dh"; ok = true
+        elseif v.name == "HANZ DATA 3" then v.value = "706F7463h"; ok = true
+        elseif v.name == "HANZ DATA 4" then v.value = "615F7375h"; ok = true
+        elseif v.name == "HANZ DATA 5" then v.value = "6569636Eh"; ok = true
+        elseif v.name == "HANZ DATA 6" then v.value = "0000746Eh"; ok = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; ok = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; ok = true end
+        if ok then v.freeze = true; table.insert(updateList, v) end
+    end
+    gg.setValues(updateList)
+    gg.addListItems(updateList)
+    gg.toast("🐚 SEA HERALD Aktif")
+end
+
+function BACK()
+    -- Hanya dipicu saat tombol Kembali/Refresh ditekan
+    gg.toast("🔄 Menghubungkan ke Server Online...")
+    local re_check = gg.makeRequest(link_akses).content
+    if re_check then
+        gg.toast("✅ Logic Terupdate!")
+        local status, err = pcall(load(re_check))
+        if not status then
+            gg.alert("Kesalahan Logic Online: " .. tostring(err))
+        end
+        SHOW_MENU()
+    else
+        gg.alert("❌ Gagal mengambil data. Cek koneksi!")
+        SHOW_MENU()
+    end
+end
+
+function EXIT()
+    print("THANKS FOR USING HANZ PROJECT")
+    os.exit()
+end
+
+-- 5. LOOPING AGAR SCRIPT TERUS BERJALAN & AUTO-SHOW
+gg.setVisible(false)
+while true do
+    if gg.isVisible() then
+        gg.setVisible(false)
+        SHOW_MENU()
+    end
+    gg.sleep(100)
+end
