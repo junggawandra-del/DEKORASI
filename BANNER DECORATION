@@ -1,0 +1,407 @@
+-- ██╗  ██╗ █████╗ ███╗   ██╗███████╗
+-- ██║  ██║██╔══██╗████╗  ██║╚══███╔╝
+-- ███████║███████║██╔██╗ ██║  ███╔╝
+-- ██╔══██║██╔══██║██║╚██╗██║ ███╔╝
+-- ██║  ██║██║  ██║██║ ╚████║███████╗
+-- ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝
+-- TOWNSHIP SCRIPT v1.0 | DEV: HANZ
+-- ================================================
+-- ONLINE LOADER - Ambil logika dari Pastebin
+-- ================================================
+
+local scriptLoaded = false
+local onlineCode = ""
+
+local function loadOnlineScript()
+    gg.toast("🌐 Menghubungkan ke server...")
+    gg.sleep(500)
+
+    local status, result = pcall(function()
+        return gg.makeRequest("https://pastebin.com/raw/gBVqQW2b")
+    end)
+
+    if status and result and result.code == 200 then
+        onlineCode = result.content
+        scriptLoaded = true
+        gg.toast("✅ Script berhasil dimuat dari server!")
+    else
+        gg.toast("⚠️ Gagal memuat online, menggunakan mode offline.")
+        scriptLoaded = false
+    end
+end
+
+-- ================================================
+-- LOADING SCREEN ANIMASI
+-- ================================================
+
+local function showLoading()
+    local frames = {
+        "⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛  0%",
+        "🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛  10%",
+        "🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛  20%",
+        "🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛  30%",
+        "🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛  40%",
+        "🟦🟦🟦🟦🟦⬛⬛⬛⬛⬛  50%",
+        "🟦🟦🟦🟦🟦🟦⬛⬛⬛⬛  60%",
+        "🟦🟦🟦🟦🟦🟦🟦⬛⬛⬛  70%",
+        "🟦🟦🟦🟦🟦🟦🟦🟦⬛⬛  80%",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦⬛  90%",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦  100%",
+    }
+
+    local steps = {
+        "🔍 Memeriksa versi script...",
+        "📡 Menghubungkan ke server...",
+        "⬇️  Mengunduh data...",
+        "🔧 Mempersiapkan modul...",
+        "🧩 Memuat komponen menu...",
+        "🛡️  Mengaktifkan proteksi...",
+        "✨ Menyelesaikan inisialisasi...",
+    }
+
+    for i = 1, #frames do
+        local stepIdx = math.ceil(i / (#frames / #steps))
+        if stepIdx > #steps then stepIdx = #steps end
+        gg.setVisible(false)
+        gg.toast(steps[stepIdx] .. "\n\n" .. frames[i])
+        gg.sleep(150)
+    end
+
+    gg.sleep(300)
+    gg.toast("🚀 Script siap digunakan!")
+    gg.sleep(400)
+end
+
+-- ================================================
+-- FUNGSI WAKTU & SALAM
+-- ================================================
+
+local function getGreeting()
+    local hour = tonumber(os.date("%H"))
+    if hour >= 4 and hour < 12 then
+        return "🌅 Good Morning!"
+    elseif hour >= 12 and hour < 15 then
+        return "☀️ Good Afternoon!"
+    elseif hour >= 15 and hour < 18 then
+        return "🌤️ Good Afternoon!"
+    elseif hour >= 18 and hour < 21 then
+        return "🌆 Good Evening!"
+    else
+        return "🌙 Good Night!"
+    end
+end
+
+local function getDayName()
+    local days = {
+        "Minggu", "Senin", "Selasa", "Rabu",
+        "Kamis", "Jumat", "Sabtu"
+    }
+    return days[tonumber(os.date("%w")) + 1]
+end
+
+local function getMonthName()
+    local months = {
+        "Januari", "Februari", "Maret", "April",
+        "Mei", "Juni", "Juli", "Agustus",
+        "September", "Oktober", "November", "Desember"
+    }
+    return months[tonumber(os.date("%m"))]
+end
+
+local function getHeaderInfo()
+    local greeting = getGreeting()
+    local day = getDayName()
+    local date = os.date("%d")
+    local month = getMonthName()
+    local year = os.date("%Y")
+    local time = os.date("%H:%M:%S")
+
+    return greeting .. "\n" ..
+           "📅 " .. day .. ", " .. date .. " " .. month .. " " .. year .. "\n" ..
+           "🕐 " .. time .. "\n" ..
+           "━━━━━━━━━━━━━━━━━━━━\n" ..
+           "🎮 GAME   : TOWNSHIP\n" ..
+           "👨‍💻 DEV    : HANZ\n" ..
+           "📋 MENU   : BANNER\n" ..
+           "━━━━━━━━━━━━━━━━━━━━"
+end
+
+-- ================================================
+-- LOGIKA 1 - COOKING MASTERPIECE
+-- ================================================
+
+local function runCookingMasterpiece()
+    gg.toast("🍳 Memuat Cooking Masterpiece...")
+    gg.sleep(600)
+    gg.clearResults()
+
+    local items = gg.getListItems()
+
+    if #items == 0 then
+        gg.alert("⚠️ Saved List kosong!\nSimpan data terlebih dahulu.")
+        return
+    end
+
+    local updateList = {}
+    local count = 0
+
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+
+        if v.name == "HANZ DATA 1" then
+            v.value = "65705328h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then
+            v.value = "6C616963h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then
+            v.value = "75616542h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then
+            v.value = "425F7974h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then
+            v.value = "656E6E61h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then
+            v.value = "00000072h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then
+            v.value = "2"
+            needsUpdate = true
+        end
+
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("✅ Berhasil memperbarui dan membekukan " .. count .. " data. 🍳")
+    else
+        gg.toast("❌ Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+-- ================================================
+-- LOGIKA 2 - MEETING SANTA
+-- ================================================
+
+local function runMeetingSanta()
+    gg.toast("🎅 Memuat Meeting Santa...")
+    gg.sleep(600)
+    gg.clearResults()
+
+    local items = gg.getListItems()
+
+    if #items == 0 then
+        gg.alert("⚠️ Saved List kosong!\nSimpan data terlebih dahulu.")
+        return
+    end
+
+    local updateList = {}
+    local count = 0
+
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+
+        if v.name == "HANZ DATA 1" then
+            v.value = "7268431Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then
+            v.value = "6D747369h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then
+            v.value = "61427361h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then
+            v.value = "72656E6Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then
+            v.value = "2"
+            needsUpdate = true
+        end
+
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("✅ Berhasil memperbarui dan membekukan " .. count .. " data. 🎅")
+    else
+        gg.toast("❌ Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+-- ================================================
+-- LOGIKA 3 - CONFETTI BLAST
+-- ================================================
+
+local function runConfettiBlast()
+    gg.toast("🎊 Memuat Confetti Blast...")
+    gg.sleep(600)
+    gg.clearResults()
+
+    local items = gg.getListItems()
+
+    if #items == 0 then
+        gg.alert("⚠️ Saved List kosong!\nSimpan data terlebih dahulu.")
+        return
+    end
+
+    local updateList = {}
+    local count = 0
+
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+
+        if v.name == "HANZ DATA 1" then
+            v.value = "6968431Ah"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then
+            v.value = "6573656Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then
+            v.value = "6E6E6142h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then
+            v.value = "00007265h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then
+            v.value = "7320BF90h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then
+            v.value = "00007638h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then
+            v.value = "2"
+            needsUpdate = true
+        end
+
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("✅ Berhasil memperbarui dan membekukan " .. count .. " data. 🎊")
+    else
+        gg.toast("❌ Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+-- ================================================
+-- FUNGSI KEMBALI - Load dari Online
+-- ================================================
+
+local function runKembali()
+    gg.toast("🌐 Memuat script dari online...")
+    gg.sleep(400)
+
+    local status, result = pcall(function()
+        return gg.makeRequest("https://pastebin.com/raw/gBVqQW2b")
+    end)
+
+    if status and result and result.code == 200 then
+        gg.toast("✅ Script online berhasil dimuat!")
+        gg.sleep(300)
+        local fn, err = load(result.content)
+        if fn then
+            fn()
+        else
+            gg.alert("❌ Error menjalankan script online:\n" .. tostring(err))
+        end
+    else
+        gg.alert("❌ Gagal memuat script dari:\nhttps://pastebin.com/raw/gBVqQW2b\n\nPeriksa koneksi internet.")
+    end
+end
+
+-- ================================================
+-- MENU UTAMA
+-- ================================================
+
+local function showMainMenu()
+    while true do
+        local header = getHeaderInfo()
+
+        local choice = gg.choice(
+            {
+                "🍳 1. COOKING MASTERPIECE",
+                "🎅 2. MEETING SANTA",
+                "🎊 3. CONFETTI BLAST",
+                "🔙 KEMBALI",
+                "🚪 KELUAR",
+            },
+            nil,
+            header
+        )
+
+        -- Jika pilihan nil (klik luar / batal) = SEMBUNYIKAN saja, tidak keluar
+        if choice == nil then
+            gg.setVisible(false)
+            -- Tunggu sampai GG terlihat lagi, lalu tampilkan menu kembali
+            while not gg.isVisible() do
+                gg.sleep(300)
+            end
+            -- Setelah GG terlihat kembali, tampilkan menu lagi
+        elseif choice == 1 then
+            runCookingMasterpiece()
+        elseif choice == 2 then
+            runMeetingSanta()
+        elseif choice == 3 then
+            runConfettiBlast()
+        elseif choice == 4 then
+            runKembali()
+            -- Setelah kembali, menu tetap berjalan
+        elseif choice == 5 then
+            -- KELUAR - satu-satunya cara keluar dari menu
+            gg.alert("👋 Script dihentikan.\n\nTerima kasih telah menggunakan\nTOWNSHIP SCRIPT by HANZ 🎮")
+            os.exit()
+        end
+    end
+end
+
+-- ================================================
+-- ENTRY POINT - JALANKAN SCRIPT
+-- ================================================
+
+-- Langkah 1: Tampilkan loading screen
+showLoading()
+
+-- Langkah 2: Load script dari online
+loadOnlineScript()
+
+-- Langkah 3: Bersihkan hasil pencarian sebelumnya
+gg.clearResults()
+
+-- Langkah 4: Tampilkan menu secara otomatis & terus berjalan
+gg.setVisible(true)
+showMainMenu()
