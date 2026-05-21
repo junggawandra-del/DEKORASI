@@ -1,0 +1,123 @@
+-- HANZ SCRIPT LOADER
+-- DEV: HANZ
+
+local function getGreeting()
+    local hour = tonumber(os.date("%H"))
+    if hour < 12 then return "Good Morning ☀️"
+    elseif hour < 15 then return "Good Afternoon 🌤️"
+    elseif hour < 19 then return "Good Evening 🌇"
+    else return "Good Night 🌙"
+    end
+end
+
+local function getInfo()
+    return getGreeting() .. "\n" ..
+           "📅 Date: " .. os.date("%A, %d %B %Y") .. "\n" ..
+           "⏰ Time: " .. os.date("%H:%M:%S") .. "\n" ..
+           "🎮 GAME : TOWNSHIP\n" ..
+           "👤 DEV : HANZ\n" ..
+           "⚙️ MENU : EXPERIMENT DECORATION"
+end
+
+local function loadOnline()
+    gg.toast("Loading HANZ SECURITY...")
+    local url = "https://pastebin.com/raw/gBVqQW2b"
+    local content = gg.makeRequest(url)
+    if content and content.content then
+        load(content.content)()
+    else
+        gg.alert("Gagal memuat data online!")
+    end
+end
+
+-- LOGIKA FULL UNTUK MENU 1
+local function menu1()
+    local items = gg.getListItems()
+    if #items == 0 then gg.alert("Saved List kosong!") return end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "6570532Ch"; needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "6C616963h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "75616542h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "705F7974h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "6F6B7561h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00646F68h"; needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; needsUpdate = true
+        end
+        if needsUpdate then v.freeze = true; table.insert(updateList, v); count = count + 1 end
+    end
+    if #updateList > 0 then gg.setValues(updateList); gg.addListItems(updateList); gg.toast("✅ MECHANICAL SPIDER: Updated " .. count .. " items") else gg.toast("Data tidak ditemukan") end
+end
+
+-- LOGIKA FULL UNTUK MENU 2
+local function menu2()
+    local items = gg.getListItems()
+    if #items == 0 then gg.alert("Saved List kosong!") return end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "6E6F431Eh"; needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "7463656Eh"; needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "6174535Fh"; needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "6E6F6974h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "28159500h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "0000006Eh"; needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; needsUpdate = true
+        end
+        if needsUpdate then v.freeze = true; table.insert(updateList, v); count = count + 1 end
+    end
+    if #updateList > 0 then gg.setValues(updateList); gg.addListItems(updateList); gg.toast("✅ COMMS STATION: Updated " .. count .. " items") else gg.toast("Data tidak ditemukan") end
+end
+
+-- LOGIKA FULL UNTUK MENU 3
+local function menu3()
+    local items = gg.getListItems()
+    if #items == 0 then gg.alert("Saved List kosong!") return end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then v.value = "61656226h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then v.value = "5F797475h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then v.value = "616C6F73h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then v.value = "79735F72h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then v.value = "6D657473h"; needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then v.value = "00007F00h"; needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then v.value = "0"; needsUpdate = true
+        elseif v.name == "HANZ NILAI" then v.value = "2"; needsUpdate = true
+        end
+        if needsUpdate then v.freeze = true; table.insert(updateList, v); count = count + 1 end
+    end
+    if #updateList > 0 then gg.setValues(updateList); gg.addListItems(updateList); gg.toast("✅ OPEN-AIR PLANETARIUM: Updated " .. count .. " items") else gg.toast("Data tidak ditemukan") end
+end
+
+-- MAIN EXECUTION
+gg.clearResults()
+
+while true do
+    if gg.isVisible(true) then
+        gg.setVisible(false)
+        local menu = gg.choice({
+            "1. MECHANICAL SPIDER 🕷️",
+            "2. COMMS STATION 📡",
+            "3. OPEN-AIR PLANETARIUM 🪐",
+            "⬅️ KEMBALI",
+            "❌ KELUAR"
+        }, nil, getInfo())
+
+        if menu == 1 then menu1()
+        elseif menu == 2 then menu2()
+        elseif menu == 3 then menu3()
+        elseif menu == 4 then loadOnline()
+        elseif menu == 5 or menu == nil then
+            if menu == 5 then os.exit() end
+        end
+    end
+    gg.sleep(100)
+end
+
