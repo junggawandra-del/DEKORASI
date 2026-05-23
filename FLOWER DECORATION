@@ -1,0 +1,925 @@
+-- ONLINE ACCESS DI AWAL SCRIPT KE GOOGLE
+local online = gg.makeRequest("https://www.google.com")
+if type(online) ~= "table" or online.code ~= 200 then
+    gg.alert("❌ Gagal terhubung ke server online! Pastikan jaringan internet Anda aktif.")
+    return
+end
+
+-- CLEAR HASIL PENCARIAN & DAFTAR SIMPANAN
+gg.clearResults()
+
+-- SEGERA TAMPILKAN SCRIPT OTOMATIS (AUTO SHOW)
+gg.setVisible(true)
+
+-- FUNGSI UCAPAN SELAMAT & WAKTU AKURAT
+local function getGreeting()
+    local hour = tonumber(os.date("%H"))
+    if hour >= 5 and hour < 11 then return "Good Morning 🌅"
+    elseif hour >= 11 and hour < 15 then return "Good Afternoon ☀️"
+    elseif hour >= 15 and hour < 19 then return "Good Evening 🌇"
+    else return "Good Night 🌙"
+    end
+end
+
+-- EFEK LOADING KEREN TEMA BUNGA
+local function showLoading()
+    for i = 1, 3 do
+        gg.toast("🌸 Loading Flower Data... " .. string.rep("✿", i))
+        gg.sleep(500)
+    end
+end
+
+-- LOGIKA EXPANDED PENUH (DITEMPEL TOTAL SESUAI REQ HANZ)
+
+function L1()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "61656228h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F797475h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "726F6C66h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "735F6C61h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "70656568h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000073h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data SHEEP FLOWERD.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L2()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "61656224h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F797475h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "776F6C66h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "765F7265h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00657361h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000076h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data VASE OF FLOWER.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L3()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "61656224h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F797475h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "776F6C66h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "6F687265h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00657375h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLORIST HOUSE.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L4()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6165622Ah"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F797475h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "74736165h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "6C5F7265h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "65746E61h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "FF006E72h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLOWER LAMP POST.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L5()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6F6E670Ch"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "0073656Dh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "E7471310h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "00000079h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data GARDEN GNOMES.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L6()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "69616616h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "775F7972h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "72657461h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "31765F00h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "30385F00h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000030h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data WATER FAIRY.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L7()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6F6C661Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "55726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "7265646Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "646F6F48h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "6F6C661Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "55726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data THE ROSE.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L8()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6F6C6618h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "6E697773h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "00000067h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "6F6C6618h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "5F726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLOWER SWING.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L9()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "756F791Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "675F676Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "65647261h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "7372656Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data GARDENER TRAINING.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L10()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "706F7426h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "79726169h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "6D6F635Fh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "69746570h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "6E6F6974h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "FFFFFF00h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data TOPIARY SHOW.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L11()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6F6C6618h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "5F726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "73756F68h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "006E0065h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "000000AEh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLORIST'S HOUSE.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L12()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "74617724h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "6E697265h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "6E614367h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "7361655Fh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00726574h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000078h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data WATERING CAN FLOWERD.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L13()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "756F4818h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "475F6573h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "65647261h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "0000006Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "756F4818h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "475F6573h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data IVY HOUSE.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L14()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "6961461Ch"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "465F7972h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "746E756Fh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "006E6961h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "4483EE9Bh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "0000008Ch"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLOWER FAIRY FOUNTAIN.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L15()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "756F731Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "72656874h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "6F6C666Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "73726577h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "756F731Eh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "72656874h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLOWER TRUCK.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+function L16()
+    gg.setVisible(false)
+    local items = gg.getListItems()
+    if #items == 0 then
+        gg.alert("Saved List kosong! Pastikan data sudah disimpan sebelumnya.")
+        return
+    end
+    local updateList = {}
+    local count = 0
+    for i, v in ipairs(items) do
+        local needsUpdate = false
+        if v.name == "HANZ DATA 1" then 
+            v.value = "63654420h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 2" then 
+            v.value = "465F726Fh"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 3" then 
+            v.value = "65776F6Ch"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 4" then 
+            v.value = "6F685372h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 5" then 
+            v.value = "00000070h"
+            needsUpdate = true
+        elseif v.name == "HANZ DATA 6" then 
+            v.value = "00000000h"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI POINTER" then 
+            v.value = "0"
+            needsUpdate = true
+        elseif v.name == "HANZ NILAI" then 
+            v.value = "2"
+            needsUpdate = true
+        end
+        if needsUpdate then
+            v.freeze = true
+            table.insert(updateList, v)
+            count = count + 1
+        end
+    end
+    if #updateList > 0 then
+        gg.setValues(updateList)
+        gg.addListItems(updateList)
+        gg.toast("🌸 Berhasil memperbarui dan membekukan " .. count .. " data FLOWER PAVILION.")
+    else
+        gg.toast("Tidak ditemukan nama yang sesuai di Saved List.")
+    end
+end
+
+-- LOOP MENU UTAMA (TIDAK AKAN KELUAR KECUALI KLIK EXIT, BATAL/KLIK LUAR HANYA SEMBUNYI)
+while true do
+    local menu = gg.choice({
+        getGreeting() .. " 🌸\n" ..
+        "📅 " .. os.date("%A, %d %B %Y") .. "\n" ..
+        "⏰ " .. os.date("%H:%M:%S") .. "\n" ..
+        "🚜 GAME : TOWNSHIP\n" ..
+        "🛠️ DEV : HANZ\n" ..
+        "🌹 MENU : FLOWER DECORATION\n" ..
+        "------------------------------------",
+        "1. SHEEP FLOWERD 🐑",
+        "2. VASE OF FLOWER 🏺",
+        "3. FLORIST HOUSE 🏠",
+        "4. FLOWER LAMP POST 💡",
+        "5. GARDEN GNOMES 🍄",
+        "6. WATER FAIRY 🧚",
+        "7. THE ROSE 🌹",
+        "8. FLOWER SWING 🍃",
+        "9. GARDENER TRAINING 👨‍🌾",
+        "10. TOPIARY SHOW 🌳",
+        "11. FLORIST'S HOUSE 🏡",
+        "12. WATERING CAN FLOWERD 💧",
+        "13. IVY HOUSE 🌿",
+        "14. FLOWER FAIRY FOUNTAIN ⛲",
+        "15. FLOWER TRUCK 🚚",
+        "16. FLOWER PAVILION 🏛️",
+        "🔙 KEMBALI",
+        "❌ KELUAR"
+    }, nil, "✿ DECORATION MENU ✿")
+
+    -- JIKA SCRIPT DI-BATALKAN / DI-KLIK DI LUAR LAYAR MENU
+    if menu == nil then
+        gg.setVisible(false) -- Sembunyikan menu secara instan
+        -- Loop khusus penahan agar script tetap berjalan di latar belakang (Background)
+        -- Script baru akan memunculkan menu lagi jika icon Game Guardian diklik oleh user
+        while not gg.isVisible() do
+            gg.sleep(100) -- Memberi jeda 100ms agar CPU perangkat tidak panas/lag
+        end
+    elseif menu == 2 then showLoading(); L1()
+    elseif menu == 3 then showLoading(); L2()
+    elseif menu == 4 then showLoading(); L3()
+    elseif menu == 5 then showLoading(); L4()
+    elseif menu == 6 then showLoading(); L5()
+    elseif menu == 7 then showLoading(); L6()
+    elseif menu == 8 then showLoading(); L7()
+    elseif menu == 9 then showLoading(); L8()
+    elseif menu == 10 then showLoading(); L9()
+    elseif menu == 11 then showLoading(); L10()
+    elseif menu == 12 then showLoading(); L11()
+    elseif menu == 13 then showLoading(); L12()
+    elseif menu == 14 then showLoading(); L13()
+    elseif menu == 15 then showLoading(); L14()
+    elseif menu == 16 then showLoading(); L15()
+    elseif menu == 17 then showLoading(); L16()
+    elseif menu == 18 then 
+        -- Logika tombol Kembali (Index 18 karena bergeser oleh teks informasi paling atas)
+        local res = gg.makeRequest("https://pastebin.com/raw/gBVqQW2b")
+        if type(res) == "table" and res.code == 200 then
+            local runScript, err = load(res.content)
+            if runScript then
+                gg.setVisible(false)
+                pcall(runScript)
+                break -- Hentikan loop script ini agar script dari pastebin bisa mengambil alih sepenuhnya
+            else
+                gg.alert("❌ Gagal memuat script kembali: " .. tostring(err))
+            end
+        else
+            gg.alert("❌ Gagal mengambil data online dari Pastebin!")
+        end
+    elseif menu == 19 then 
+        -- Tombol Keluar (Index 19 karena bergeser oleh teks informasi paling atas)
+        gg.setVisible(false)
+        os.exit() -- Membuat exit script secara total dan bersih
+    end
+end
+
